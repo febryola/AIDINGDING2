@@ -4,7 +4,11 @@
   (declare (salience 10))
   =>
   (printout t crlf crlf)
-  (printout t "Survey Prediksi Penyakit Hepatitis B")
+  (printout t "----------------------------------------------------------------------------------" crlf)
+  (printout t crlf crlf)
+  (printout t "                   Survey Prediksi Penyakit Hepatitis B")
+  (printout t crlf crlf)
+  (printout t "----------------------------------------------------------------------------------" crlf)
   (printout t crlf crlf))
 ;--------------------------
 (defrule cekHBsAg
@@ -29,7 +33,11 @@
 (and (HBsAg positive)
 (anti-HDV positive))
 =>
-(printout t "Anda menderita Hepatitis B+D" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "             Hasil Prediksi: Anda menderita Hepatitis B+D" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Hepatitis B+D positive)))
 
 (defrule cekAnti-HBs
@@ -44,7 +52,11 @@
 (and (HBsAg positive)
 (anti-HDV negative)(anti-HBc negative))
 =>
-(printout t "Uncertain Configuration" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "                   Hasil Prediksi: Uncertain Configuration" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Uncertain Configuration)))
 
 (defrule IgMAnti-HBc
@@ -58,21 +70,33 @@
 (and (HBsAg positive)
 (anti-HDV negative)(anti-HBc positive)(anti-HBs positive))
 =>
-(printout t "Uncertain Configuration" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "                    Hasil Prediksi: Uncertain Configuration" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Uncertain Configuration positive)))
 
 (defrule posIgMAnti-HBc
 (and (HBsAg positive)
 (anti-HDV negative)(anti-HBc positive)(anti-HBs negative)(igmanti-HBc positive))
 =>
-(printout t "Acure Infection" crlf)
-(assert (Acure Infection positive)))
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "                          Hasil Prediksi: Acute infection" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
+(assert (Acute infection positive)))
 
 (defrule noposIgMAnti-HBc
 (and (HBsAg positive)
 (anti-HDV negative)(anti-HBc positive)(anti-HBs negative)(igmanti-HBc negative))
 =>
-(printout t "Chronic Infection" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "                       Hasil Prediksi: Chronic Infection" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Chronic Infection positive)))
 
 (defrule cekAnti-HBs2
@@ -96,23 +120,39 @@
 (defrule cekAnti-HBc2-lanj
 (and (HBsAg negative)(anti-HBs-2 positive)(anti-HBc-2 positive))
 =>
-(printout t "Cured" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "                             Hasil Prediksi: Cured" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Cured positive)))
 
 (defrule cekNoAnti-HBc2-lanj
 (and (HBsAg negative)(anti-HBs-2 positive)(anti-HBc-2 negative))
 =>
-(printout t "Vaccinated" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "                         Hasil Prediksi: Vaccinated" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Vaccinated positive)))
 
 (defrule cekAnti-HBc3-lanj
 (and (HBsAg negative)(anti-HBs-2 negative)(anti-HBc-3 positive))
 =>
-(printout t "Unclear (Possible resolved)" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "            Hasil Prediksi: Unclear (possible resolved)" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Unclear positive)))
 
 (defrule cekNoAnti-HBc3-lanj
 (and (HBsAg negative)(anti-HBs-2 negative)(anti-HBc-3 negative))
 =>
-(printout t "Healthy not vaccinated or suspicious" crlf)
+(printout t crlf crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t "       Hasil Prediksi: Healthy not vaccinated or suspicious" crlf)
+(printout t "----------------------------------------------------------------------------------" crlf)
+(printout t crlf crlf)
 (assert (Healthy-not-vaccinated positive)))
